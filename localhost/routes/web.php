@@ -10,6 +10,12 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::get('home/add', 'HomeController@postIndex');
 Route::get('/','BaseController@getIndex');
-Route::get('/{id}', 'BaseController@getOne'); //всегда последний
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('catalog/{id}','CatalogController@getIndex');
+Route::get('/{id}', 'StaticController@getIndex'); //всегда последний
